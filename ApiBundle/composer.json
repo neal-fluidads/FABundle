@@ -1,0 +1,28 @@
+{
+	"name" : "Fluidads/fluidads-api-bundle",
+	"description" : "Provides connection and usage if the FluidAds API",
+	"type" : "symfony-bundle",
+	"authors" : [{
+		"name" : "Neal Howarth",
+		"email" : "neal.howarth@fluidads.com"
+	}],
+	"keywords" : [
+		"Fluidads api bundle"
+	],
+	"require" : {
+
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Fluidads\\ApiBundle\\" : ""
+		}
+	},
+	"repositories" : [{
+
+	}],
+	"extra" : {
+		"branch-alias" : {
+			"master" : ""
+		}
+	}
+}
