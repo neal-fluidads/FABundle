@@ -6,7 +6,7 @@ namespace Fluidads\ApiBundle;
 * Main Fluidads connection class
 * Takes care of authentication and token management
 */
-class FluidadsApiConnection
+class ApiConnection
 {
 	
 	const FA_API_PATH = "http://local.fluidads.lcl/api/";

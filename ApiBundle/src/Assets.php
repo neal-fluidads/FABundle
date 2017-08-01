@@ -2,7 +2,7 @@
 
 namespace Fluidads\ApiBundle;
 
-use Fluidads\ApiBundle\FluidadsApiConnection;
+use Fluidads\ApiBundle\ApiConnection;
 
 /**
 * 
@@ -29,7 +29,7 @@ class Assets
 
 	function __construct($token)
 	{
-		$this->connection = new FluidadsApiConnection;
+		$this->connection = new ApiConnection;
 
 		$this->token = $token;
 	}
