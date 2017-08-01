@@ -95,7 +95,7 @@ class ApiConnection
 		}
 
 		if($canSend) {
-			$this->send($url, $method, $getVars, $postVars, $sessionToken);
+			return $this->send($url, $method, $getVars, $postVars, $sessionToken);
 		} else {
 			// we need to (re)authorise the user
 			return false;
