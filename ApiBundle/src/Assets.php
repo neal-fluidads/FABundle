@@ -10,9 +10,9 @@ use Fluidads\ApiBundle\ApiConnection;
 class Assets
 {
 	
-	const ASSETS_PATH = "assets";
+	const PLURAL_PATH = "assets";
 
-	const ASSET_PATH = "asset";
+	const SINGULAR_PATH = "asset";
 
 
 	/**
@@ -42,11 +42,9 @@ class Assets
 	 */
 	public function getAssets()
 	{
-		$assets = $this->connection->sendRequest(self::ASSETS_PATH, 'GET', array(), array(), $this->token);
+		$assets = $this->connection->sendRequest(self::PLURAL_PATH, 'GET', array(), array(), $this->token);
 
-		if($assets) return $assets;
-
-		return false;
+		return $assets;
 	}
 
 
@@ -59,11 +57,9 @@ class Assets
 	 */
 	public function getAccountAssets($accountId)
 	{
-		$assets = $this->connection->sendRequest(self::ASSETS_PATH.'/account/'.$accountId, 'GET', array(), array(), $this->token);
+		$assets = $this->connection->sendRequest(self::PLURAL_PATH.'/account/'.$accountId, 'GET', array(), array(), $this->token);
 
-		if($assets) return $assets;
-
-		return false;
+		return $assets;
 	}
 
 
@@ -76,11 +72,9 @@ class Assets
 	 */
 	public function getAsset($assetId)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId, 'GET', array(), array(), $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId, 'GET', array(), array(), $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -94,11 +88,9 @@ class Assets
 	 */
 	public function getAccountAsset($assetId, $accountId)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId.'/account/'.$accountId, 'GET', array(), array(), $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId.'/account/'.$accountId, 'GET', array(), array(), $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -111,11 +103,9 @@ class Assets
 	 */
 	public function createAsset($data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH, 'POST', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH, 'POST', array(), $data, $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -129,11 +119,9 @@ class Assets
 	 */
 	public function createAccountAsset($accountId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/account/'.$accountId, 'POST', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/account/'.$accountId, 'POST', array(), $data, $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -147,11 +135,9 @@ class Assets
 	 */
 	public function updateAsset($assetId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId, 'PUT', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId, 'PUT', array(), $data, $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -166,11 +152,9 @@ class Assets
 	 */
 	public function updateAccountAsset($assetId, $accountId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId.'/account'.$accountId, 'PUT', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId.'/account'.$accountId, 'PUT', array(), $data, $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -183,11 +167,9 @@ class Assets
 	 */
 	public function deleteAsset($assetId)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId, 'DELETE', array(), array(), $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId, 'DELETE', array(), array(), $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
@@ -201,11 +183,9 @@ class Assets
 	 */
 	public function deleteAccountAsset($assetId, $accountId)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId.'/account/'.$accountId, 'DELETE', array(), array(), $this->token);
+		$asset = $this->connection->sendRequest(self::SINGULAR_PATH.'/'.$assetId.'/account/'.$accountId, 'DELETE', array(), array(), $this->token);
 
-		if($asset) return $asset;
-
-		return false;
+		return $asset;
 	}
 
 
