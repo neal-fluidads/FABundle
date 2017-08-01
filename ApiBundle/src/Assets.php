@@ -10,9 +10,9 @@ use Fluidads\ApiBundle\ApiConnection;
 class Assets
 {
 	
-	const ASSETS_PATH = "assets/";
+	const ASSETS_PATH = "assets";
 
-	const ASSET_PATH = "asset/";
+	const ASSET_PATH = "asset";
 
 
 	/**
@@ -57,7 +57,7 @@ class Assets
 	 *
 	 * @return array|false
 	 */
-	public function getAccountAssets()
+	public function getAccountAssets($accountId)
 	{
 		$assets = $this->connection->sendRequest(self::ASSETS_PATH.'/account/'.$accountId, 'GET', array(), array(), $this->token);
 
@@ -129,7 +129,7 @@ class Assets
 	 */
 	public function createAccountAsset($accountId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH, 'POST', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/account/'.$accountId, 'POST', array(), $data, $this->token);
 
 		if($asset) return $asset;
 
@@ -147,7 +147,7 @@ class Assets
 	 */
 	public function updateAsset($assetId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH, 'PUT', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId, 'PUT', array(), $data, $this->token);
 
 		if($asset) return $asset;
 
@@ -166,7 +166,7 @@ class Assets
 	 */
 	public function updateAccountAsset($assetId, $accountId, $data)
 	{
-		$asset = $this->connection->sendRequest(self::ASSET_PATH, 'PUT', array(), $data, $this->token);
+		$asset = $this->connection->sendRequest(self::ASSET_PATH.'/'.$assetId.'/account'.$accountId, 'PUT', array(), $data, $this->token);
 
 		if($asset) return $asset;
 
