@@ -14,7 +14,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Fluidads\\ApiBundle\\" : "ApiBundle/"
+			"Fluidads\\ApiBundle\\" : "src/"
 		}
 	},
 	"repositories" : [{
